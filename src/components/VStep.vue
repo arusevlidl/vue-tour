@@ -9,9 +9,10 @@
     <slot name="content">
       <div class="v-step__content">
         <div v-if="step.content" v-html="step.content"></div>
-        <div
-          v-else
-        >This is a demo step! The id of this step is {{ hash }} and it targets {{ step.target }}.</div>
+        <div v-else>
+          This is a demo step! The id of this step is {{ hash }} and it targets
+          {{ step.target }}.
+        </div>
       </div>
     </slot>
 
@@ -102,11 +103,9 @@ export default {
   data() {
     return {
       hash: sum(this.step.target),
-      targetElement: this.step.webComponent
-        ? document
-            .querySelector(this.step.webComponent)
-            .shadowRoot.querySelector(this.step.target)
-        : document.querySelector(this.step.target)
+      targetElement: document
+        .querySelector("odjui-content")
+        .shadowRoot.querySelector(this.step.target)
     };
   },
   computed: {
